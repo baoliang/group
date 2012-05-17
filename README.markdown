@@ -44,11 +44,6 @@ to prepare all the config files and start essential services.
 ## Memcached
 
 Dalli requires memcached 1.4.x +
-
-## Contributors
-
-* [Contributors](https://github.com/ruby-china/ruby-china/contributors)
-
 ## Thanks
 
 * [Twitter Bootstrap](https://twitter.github.com/bootstrap)
