@@ -1,10 +1,4 @@
-## Ruby-China 
-
-This is the source code of [Ruby China](http://ruby-china.org) website.
-
-[![Build
-Status](https://secure.travis-ci.org/ruby-china/ruby-china.png?branch=master&.png)](http://travis-ci.org/ruby-china/ruby-china)
-
+## 农友网 
 ## Install
 
   * You need *Ruby 1.9.2+*, *Rubygems* and *Rails 3.2+* first.
