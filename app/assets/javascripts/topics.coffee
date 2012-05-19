@@ -12,18 +12,25 @@ window.Topics =
     txtBox.val(before_text + src_merged + source.slice(caret_pos+1, source.count))
     txtBox.caretPos(caret_pos+src_merged.length)
     txtBox.focus()
-    $("#add_image").jDialog.close()
 
   # 上传图片
-  addImageClick : () ->
-    opts =
-      title:"插入图片"
-      width: 350
-      height: 145
-      content: '<iframe src="/photos/tiny_new" frameborder="0" style="width:330px; height:145px;"></iframe>',
-      close_on_body_click : false
+  initUploader : () ->
+    $("#topic_add_image").bind "click", () ->
+      $("#topic_upload_images").click()
+      return false
 
-    $("#add_image").jDialog(opts)
+    opts =
+      url : "/photos"
+      type : "POST"
+      beforeSend : () ->
+        $("#topic_add_image").hide()
+        $("#topic_add_image").before("<span class='loading'>上传中...</span>")
+      success : (result, status, xhr) ->
+        $("#topic_add_image").parent().find("span").remove()
+        $("#topic_add_image").show()
+        Topics.appendImageFromUpload([result])
+
+    $("#topic_upload_images").fileUpload opts
     return false
 
   # 回复
@@ -146,7 +153,7 @@ window.Topics =
 $(document).ready ->
   $("textarea").bind "keydown","ctrl+return",(el) ->
     if $(el.target).val().trim().length > 0
-      $("#reply form").submit()
+      $("#reply > form").submit()
     return false
 
   Topics.initCloseWarning($("textarea.closewarning"))
@@ -155,6 +162,8 @@ $(document).ready ->
 
   $("#new_reply").submit () ->
     $('#btn_reply').button('loading')
+
+  Topics.initUploader()
 
   $("a.at_floor").live 'click', () ->
     Topics.hightlightReply($(this).data("floor"))

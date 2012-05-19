@@ -8,12 +8,12 @@
 #= require bootstrap-popover
 #= require bootstrap-modal
 #= require will_paginate
-#= require jquery.jdialog
 #= require jquery.timeago
 #= require jquery.timeago.settings
 #= require jquery.hotkeys
 #= require jquery.chosen
 #= require jquery.autogrow-textarea
+#= require jquery.html5-fileupload
 #= require social-share-button
 #= require jquery.atwho
 #= require_self
