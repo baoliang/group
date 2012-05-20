@@ -47,8 +47,6 @@ Forked from [Homeland Project](https://github.com/huacnlee/homeland)
 
 ## License
 
-Copyright (c) 2011-2012 Ruby China
 
 Released under the MIT license:
 
-* [www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)

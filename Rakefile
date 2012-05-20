@@ -6,7 +6,11 @@ require 'rake'
 require 'resque/tasks'
 
 RubyChina::Application.load_tasks
-
+task :run do
+  system("nohup redis-server &")
+  system("nohup mongod --dbpath ~/db &")
+  system("./script/resque start")
+end
 namespace :resque do
   task :restart_workers => :environment do
     pids = Array.new
