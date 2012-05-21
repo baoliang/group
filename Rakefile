@@ -12,6 +12,11 @@ task :run do
   system("./script/resque start")
   system("bundle exec rake sunspot:solr:start")
 end
+task :start do
+  system("nohup ./script/resque start &")
+  system("nohup bundle exec rake sunspot:solr:start &")
+end
+
 namespace :resque do
   task :restart_workers => :environment do
     pids = Array.new
