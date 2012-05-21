@@ -10,6 +10,7 @@ task :run do
   system("nohup redis-server &")
   system("nohup mongod --dbpath ~/db &")
   system("./script/resque start")
+  system("bundle exec rake sunspot:solr:start")
 end
 namespace :resque do
   task :restart_workers => :environment do
